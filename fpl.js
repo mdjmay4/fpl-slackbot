@@ -30,7 +30,7 @@ app.listen(port, function () {
 //app.post('/hello', fplbot);
 
 app.post('/standings', function (req, res) {
-	request('https://fantasy.premierleague.com/drf/leagues-classic-standings/259929', function (error, response, body) {
+	request('https://fantasy.premierleague.com/drf/leagues-classic-standings/667763', function (error, response, body) {
 		// manipulate the json
 		var results = JSON.parse(response.body).standings.results;
 		var leagueName = JSON.parse(response.body).league;
@@ -38,8 +38,8 @@ app.post('/standings', function (req, res) {
 			return result.rank + ') ' + result.player_name + ' - ' + result.total;
 		}).join('\n ');
 		res.status(200).json({
-			username: "JeffBot",
-			text: 'The results for the ASP Fantasy League are as follows: \n' + mappedResults
+			username: "Stop Phil Winning",
+			text: 'The results for the DICE Fantasy League are as follows: \n' + mappedResults
 		});
 	});
 })
